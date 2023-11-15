@@ -14,13 +14,16 @@ import BackEndSpringBootProject.BackEndProject.domain.ColorRepository;
 
 @Controller
 public class CarsController {
-	@Autowired
-	private CarsRepository repository;
-	
-	@Autowired
-	private ColorRepository crepository;
+    private CarsRepository repository;
+    private ColorRepository crepository;
 
-	@RequestMapping(value = { "/cars" })
+    @Autowired
+    public CarsController(CarsRepository repository, ColorRepository crepository) {
+        this.repository = repository;
+        this.crepository = crepository;
+    }
+
+	@RequestMapping(value = "/cars" )
 	public String carsList(Model model) {
 		model.addAttribute("carsList", repository.findAll());
 		return "cars";
