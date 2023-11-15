@@ -1,5 +1,7 @@
 package BackEndSpringBootProject.BackEndProject;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,7 +14,9 @@ import BackEndSpringBootProject.BackEndProject.domain.ColorRepository;
 
 @SpringBootApplication
 public class BackEndProjectApplication {
-
+	
+	private static final Logger log = LoggerFactory.getLogger(BackEndProjectApplication.class);
+	
 	public static void main(String[] args) {
 		SpringApplication.run(BackEndProjectApplication.class, args);
 	}
@@ -20,6 +24,7 @@ public class BackEndProjectApplication {
 	@Bean
 	public CommandLineRunner carsDemo(CarsRepository repository, ColorRepository crepository) {
 	    return (args) -> {
+	    	log.info("save cars");
 	    	crepository.save(new Color(""));
 	    	crepository.save(new Color("White"));
 	    	crepository.save(new Color("Black"));
@@ -37,6 +42,12 @@ public class BackEndProjectApplication {
 	    	repository.save(new Cars("Bmw", "M8 Competition", 2024, "Grand Coupe", "4.4L V8", 617, 200000, crepository.findByName("Black").get(0)));
 	    	repository.save(new Cars("Audi", "R8", 2024, "Sports Car", "5.2L V10", 610, 300000, crepository.findByName("White").get(0)));
 	    	repository.save(new Cars("Toyota", "Supra (2JZ)", 2024, "Coupe", "3.0L Inline-Six", 1200, 200000, crepository.findByName("Red").get(0)));
+	    	
+	    	log.info("fetch all cars");
+	    	for (Cars cars : repository.findAll()) {
+	    		log.info(cars.toString());
+	    	}
+	    	
 	    };
 	}
 

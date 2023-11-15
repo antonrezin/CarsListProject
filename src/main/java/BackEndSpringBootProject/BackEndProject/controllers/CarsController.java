@@ -21,7 +21,7 @@ public class CarsController {
 	private ColorRepository crepository;
 
 	@RequestMapping(value = { "/cars" })
-	public String bookList(Model model) {
+	public String carsList(Model model) {
 		model.addAttribute("carsList", repository.findAll());
 		return "cars";
 	}
