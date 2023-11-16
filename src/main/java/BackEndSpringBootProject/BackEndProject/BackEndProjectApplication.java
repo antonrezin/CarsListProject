@@ -11,6 +11,7 @@ import BackEndSpringBootProject.BackEndProject.domain.Cars;
 import BackEndSpringBootProject.BackEndProject.domain.CarsRepository;
 import BackEndSpringBootProject.BackEndProject.domain.Color;
 import BackEndSpringBootProject.BackEndProject.domain.ColorRepository;
+//import BackEndSpringBootProject.BackEndProject.domain.User;
 
 @SpringBootApplication
 public class BackEndProjectApplication {
@@ -42,6 +43,11 @@ public class BackEndProjectApplication {
 	    	repository.save(new Cars("Bmw", "M8 Competition", 2024, "Grand Coupe", "4.4L V8", 617, 200000, crepository.findByName("Black").get(0)));
 	    	repository.save(new Cars("Audi", "R8", 2024, "Sports Car", "5.2L V10", 610, 300000, crepository.findByName("White").get(0)));
 	    	repository.save(new Cars("Toyota", "Supra (2JZ)", 2024, "Coupe", "3.0L Inline-Six", 1200, 200000, crepository.findByName("Red").get(0)));
+	    	
+//	    	User user1 = new User("user", "$2a$06$3jYRJrg0ghaaypjZ/.g4SethoeA51ph3UD4kZi9oPkeMTpjKU5uo6", "USER");
+//	    	User user2 = new User("admin", "$2a$10$0MMwY.IQqpsVc1jC8u7IJ.2rT8b0Cd3b3sfIBGV2zfgnPGtT4r0.C", "ADMIN");
+//	    	repository.save(user1);
+//	    	repository.save(user2);
 	    	
 	    	log.info("fetch all cars");
 	    	for (Cars cars : repository.findAll()) {

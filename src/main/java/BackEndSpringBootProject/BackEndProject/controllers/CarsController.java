@@ -1,6 +1,7 @@
 package BackEndSpringBootProject.BackEndProject.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -43,12 +44,14 @@ public class CarsController {
 	}
 
 	@GetMapping("/delete/{id}")
+//	@PreAuthorize("hasRole('ADMIN')")
 	    public String deleteCars(@PathVariable("id") Long carsId, Model model) {
 		repository.deleteById(carsId);
-	    return "redirect:/cars";
+	    return "redirect:../cars";
 	}
 	
 	@RequestMapping(value = "/editcars/{id}")
+//	@PreAuthorize("hasRole('ADMIN')")
     public String showEditCars(@PathVariable("id") Long carsId, Model model) {
         model.addAttribute("cars", repository.findById(carsId));
         model.addAttribute("colors", crepository.findAll());
