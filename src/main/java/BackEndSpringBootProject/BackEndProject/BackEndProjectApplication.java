@@ -22,8 +22,8 @@ public class BackEndProjectApplication {
 		SpringApplication.run(BackEndProjectApplication.class, args);
 	}
 
-	@Bean
-	public CommandLineRunner carsDemo(CarsRepository repository, ColorRepository crepository) {
+    @Bean
+    CommandLineRunner carsDemo(CarsRepository repository, ColorRepository crepository) {
 	    return (args) -> {
 	    	log.info("save cars");
 	    	crepository.save(new Color(""));

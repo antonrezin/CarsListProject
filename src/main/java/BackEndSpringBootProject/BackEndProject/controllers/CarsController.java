@@ -17,6 +17,7 @@ public class CarsController {
     private ColorRepository crepository;
 
     public CarsController(CarsRepository repository, ColorRepository crepository) {
+		this.repository = repository;
         this.crepository = crepository;
     }
 
@@ -36,7 +37,7 @@ public class CarsController {
 	@PostMapping("/save")
 	public String save(@ModelAttribute Cars cars) {
 	    repository.save(cars);
-	    return "redirect:/addcars";
+	    return "redirect:/cars";
 	}
 
 	@GetMapping("/delete/{id}")
