@@ -1,4 +1,4 @@
-package BackEndSpringBootProject.BackEndProject.controllers;
+package BackEndSpringBootProject.BackEndProject.web;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -7,9 +7,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 import BackEndSpringBootProject.BackEndProject.domain.Cars;
-import BackEndSpringBootProject.BackEndProject.domain.CarsRepository;
-import BackEndSpringBootProject.BackEndProject.domain.ColorRepository;
+import BackEndSpringBootProject.BackEndProject.repository.CarsRepository;
+import BackEndSpringBootProject.BackEndProject.repository.ColorRepository;
 
 @Controller
 public class CarsController {

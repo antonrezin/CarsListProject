@@ -8,10 +8,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import BackEndSpringBootProject.BackEndProject.domain.Cars;
-import BackEndSpringBootProject.BackEndProject.domain.CarsRepository;
 import BackEndSpringBootProject.BackEndProject.domain.Color;
-import BackEndSpringBootProject.BackEndProject.domain.ColorRepository;
-//import BackEndSpringBootProject.BackEndProject.domain.User;
+import BackEndSpringBootProject.BackEndProject.repository.CarsRepository;
+import BackEndSpringBootProject.BackEndProject.repository.ColorRepository;
 
 @SpringBootApplication
 public class BackEndProjectApplication {
