@@ -1,79 +1,48 @@
-# Car List Project
+# Cars List Project
 
-This is a Car List Project built using Java Spring Boot, featuring an H2 in-memory database for data storage and Spring Web for building the web application. The project allows users to view, add, edit, and delete car entries with details such as Brand, Model, Year, Body, Engine, Horsepower (HP), Price, and Color. The application provides a simple, user-friendly interface for managing a list of cars.
+This project is a Cars List built with Java Spring Boot and an H2 in-memory database. It allows users to view, add, edit, and delete car entries with details like Brand, Model, Year, Engine, Horsepower (HP), Price, and Color.
+
+## Tech Stack
+
+- **Java Spring Boot**: The backend framework.
+- **Spring Web**: For handling web requests.
+- **Spring MVC**: For managing web pages.
+- **Thymeleaf**: For rendering the frontend.
+- **Spring Data JPA**: For database operations.
+- **H2 Database**: An in-memory database to store car data.
 
 ## Features
 
-- **View Cars**: The `/cars` endpoint displays a list of cars with the following details:
-  - Brand
-  - Model
-  - Year
-  - Body
-  - Engine
-  - Horsepower (HP)
-  - Price
-  - Color
-  - Actions (Edit and Delete buttons)
-
-**Add Car**:
-- The `/addcars` endpoint allows users to add a new car to the list with all required details. After saving, the new car will appear on the `/cars` page.
-
-**Edit Car**:
-- The `/editcars` endpoint allows users to edit the details of an existing car. After updating, the user can save the changes, which will then be reflected on the `/cars` page.
-
-**Delete Car**:
-- The `Delete` button allows users to delete a car entry from the list. Once deleted, the car entry is permanently removed.
-
-**Cancel Buttons**:
-- Both the `/addcars` and `/editcars` pages feature a Cancel button, which cancels the operation (adding or editing a car) and redirects the user back to the `/cars` page.
+- **View Cars**: The `/cars` page shows a list of cars with details and options to edit or delete them.
+- **Add Car**: The `/addcars` page lets users add a new car to the list.
+- **Edit Car**: The `/editcars` page allows users to edit an existing car’s details.
+- **Delete Car**: The `Delete` button removes a car from the list.
+- **Cancel Buttons**: On the `/addcars` and `/editcars` pages, clicking Cancel takes the user back to the cars list.
 
 ## Database
 
-- This project uses an H2 in-memory database for runtime data storage. The database is pre-configured and requires no manual setup.
+The project uses an H2 in-memory database, which is already set up and ready to use.
 
 ### Accessing the H2 Console
 
-To access the H2 database console:
-1. Open your browser and navigate to `http://localhost:8080/h2-console`.
-2. Use the following settings:
+1. Go to `http://localhost:8080/h2-console`.
+2. Use these settings:
    - JDBC URL: `jdbc:h2:mem:testdb`
-   - Username: Leave empty (default).
-   - Password: Leave empty (default).
+   - Username: Leave empty.
+   - Password: Leave empty.
 
-This allows you to inspect and query the database in real time.
+This allows you to view and manage the database.
 
 ## Endpoints
 
 ### `/cars`
-Displays a list of cars with their details and actions:
-- **Edit**: Redirects to `/editcars` where the car details can be updated.
-- **Delete**: Deletes the car from the list.
+Shows the list of cars with options to edit or delete each.
 
 ### `/addcars`
-Displays a form to add a new car with all the necessary details. After saving, the car is added to the `/cars` list.
+Shows a form to add a new car.
 
 ### `/editcars`
-Displays a form to edit an existing car's details. After saving, the car's information is updated on the `/cars` page.
-
-## Tech Stack
-
-**Java Spring Boot**:
-- The backend framework used to build the application.
-
-**Spring Web**:
-- For handling HTTP requests and building the web application.
-
-**Spring MVC**:
-- For managing web requests and serving dynamic pages.
-
-**Thymeleaf**:
-- For rendering the frontend templates.
-
-**Spring Data JPA**:
-- For interacting with the database to store and retrieve car entries.
-
-**H2 Database**:
-- An in-memory database used to store car information during runtime.
+Shows a form to edit an existing car’s details.
 
 ## Setup
 
@@ -84,7 +53,7 @@ Displays a form to edit an existing car's details. After saving, the car's infor
 
 2. **Navigate to the project directory:**
    ```bash
-   cd CarListProject
+   cd CarsListProject
    ```
 
 3. **Run the application:**
@@ -92,21 +61,61 @@ Displays a form to edit an existing car's details. After saving, the car's infor
    ./mvnw spring-boot:run
    ```
 
-4. Open your browser and navigate to `http://localhost:8080/cars` to view the application.
+4. Open your browser and go to `http://localhost:8080/cars` to view the application.
+
+## IDE Setup Instructions
+
+### VSCode
+
+1. **Install Java Extensions**:
+   - Open VSCode.
+   - Install the **Java Extension Pack**.
+
+2. **Install Spring Boot Dashboard Extension**:
+   - Go to Extensions (`Ctrl+Shift+X`).
+   - Search for **Spring Boot Dashboard** and install it.
+
+3. **Open the Project**:
+   - Select **File > Open Folder** and choose the project folder.
+
+4. **Install Maven**:
+   - If you don't have Maven, install it by running `mvn -v` in the terminal.
+
+5. **Run the Application**:
+   - Open the Spring Boot Dashboard and click **Run**.
+
+6. **Open the App**:
+   - Go to `http://localhost:8080/cars` to view the app.
+
+### IntelliJ IDEA
+
+1. Open IntelliJ IDEA.
+2. Select **File > Open** and choose the project folder.
+3. IntelliJ will detect the Maven project and download the dependencies.
+4. Click **Run > Run 'CarsListProject'** to start the app.
+
+### Eclipse
+
+1. Open Eclipse.
+2. Select **File > Import**.
+3. Choose **Maven > Existing Maven Projects** and click **Next**.
+4. Select the project folder and click **Finish**.
+5. Right-click the project and select **Run As > Spring Boot App**.
 
 ## How to Use
 
-1. **View Cars:**
-   Access the `/cars` endpoint to view the list of cars.
+1. **View Cars**:
+   Go to `/cars` to see the list of cars.
 
-2. **Add a Car:**
-   Click the "Add Car" button to navigate to the `/addcars` page and enter details for a new car.
+2. **Add a Car**:
+   Click the "Add Car" button to go to the `/addcars` page and add a new car.
 
-3. **Edit a Car:**
-   Click the "Edit" button next to any car to update its information.
+3. **Edit a Car**:
+   Click "Edit" next to a car to change its details.
 
-4. **Delete a Car:**
-   Click the "Delete" button next to any car to remove it from the list.
+4. **Delete a Car**:
+   Click "Delete" next to a car to remove it from the list.
 
-5. **Cancel Operations:**
-   If you are adding or editing a car, you can cancel the operation and return to the car list by clicking the "Cancel" button.
+5. **Cancel Operations**:
+   If adding or editing a car, you can cancel and return to the list by clicking the "Cancel" button.
+   
