@@ -28,7 +28,7 @@ The project uses an H2 in-memory database, which is already set up and ready to 
 1. Go to `http://localhost:8080/h2-console`.
 2. Use these settings:
    - JDBC URL: `jdbc:h2:mem:testdb`
-   - Username: Leave empty.
+   - Username: sa
    - Password: Leave empty.
 
 This allows you to view and manage the database.
