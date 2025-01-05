@@ -22,7 +22,7 @@ public class CarsController {
         this.crepository = crepository;
     }
 
-	@RequestMapping(value = "/cars" )
+	@RequestMapping(value = {"/", "/cars"} )
 	public String carsList(Model model) {
 		model.addAttribute("carsList", repository.findAll());
 		return "cars";
