@@ -1,53 +1,149 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>Add Car</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css"
-	th:href="@{/css/bootstrap.min.css}" />
+    <title>Add Car</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link 
+        type="text/css" 
+        rel="stylesheet" 
+        href="/css/bootstrap.min.css" 
+        th:href="@{/css/bootstrap.min.css}" 
+    />
+    <style>
+        /* Center-align text in all input fields */
+        input[type="text"] {
+            text-align: center;
+        }
+
+        /* Center-align text in the select dropdown */
+        select {
+            text-align: center;
+            text-align-last: center; /* For modern browsers */
+        }
+    </style>
 </head>
-<body style="background-color: #333; color: #fff;">
-	<div class="container">
-	    <div style="text-align: center;">
-	        <h1>Add Car</h1>
-	        <br />
-	        <form th:object="${cars}" th:action="@{/save}" action="#" method="post" style="text-align: center;">
-	
-	            <label for="brand" th:style="${'display: block; margin-bottom: 10px; text-align: center;'}">Brand</label>
-	            <input type="text" id="brand" th:field="*{brand}" th:style="${'display: block; margin: 0 auto; width: 30%; text-align: center;'}" />
-	            <br />
-	            <label for="model" th:style="${'display: block; margin-bottom: 10px; text-align: center;'}">Model</label>
-	            <input type="text" id="model" th:field="*{model}" th:style="${'display: block; margin: 0 auto; width: 30%; text-align: center;'}" />
-	            <br />
-	            <label for="year" th:style="${'display: block; margin-bottom: 10px; text-align: center;'}">Year</label>
-	            <input type="text" id="year" th:field="*{year}" th:style="${'display: block; margin: 0 auto; width: 30%; text-align: center;'}" />
-	            <br />
-	            <label for="body" th:style="${'display: block; margin-bottom: 10px; text-align: center;'}">Body</label>
-	            <input type="text" id="body" th:field="*{body}" th:style="${'display: block; margin: 0 auto; width: 30%; text-align: center;'}" />
-	            <br />
-	            <label for="engine" th:style="${'display: block; margin-bottom: 10px; text-align: center;'}">Engine</label>
-	            <input type="text" id="engine" th:field="*{engine}" th:style="${'display: block; margin: 0 auto; width: 30%; text-align: center;'}" />
-	            <br />
-	            <label for="powerHp" th:style="${'display: block; margin-bottom: 10px; text-align: center;'}">Power (HP)</label>
-	            <input type="text" id="powerHp" th:field="*{powerHp}" th:style="${'display: block; margin: 0 auto; width: 30%; text-align: center;'}" />
-	            <br />
-	            <label for="price" th:style="${'display: block; margin-bottom: 10px; text-align: center;'}">Price</label>
-	            <input type="text" id="price" th:field="*{price}" th:style="${'display: block; margin: 0 auto; width: 30%; text-align: center;'}" />
-	            <br />
-	            <label for="colorlist" th:style="${'display: block; margin-bottom: 10px; text-align: center;'}">Color</label>
-	            <select id="colorlist" th:field="*{color}" class="form-control" th:style="${'width: 30%; margin: 0 auto; text-align: center;'}">
-	                <option th:each="color: ${colors}" th:value="${color.colorid}" th:text="${color.name}"></option>
-	            </select>
-	
-	            <br />
-	            <div style="margin-top: 10px;">
-	                <a th:href="@{/cars}" class="btn btn-danger">Cancel</a>
-	                <input type="submit" value="Save" class="btn btn-success" />
-	            </div>
-	        </form>
-	        <br />
-	        <a th:href="@{/cars}" class="btn btn-outline-primary">Back to Cars List</a>
-	    </div>
-	</div>	
+<body class="bg-dark text-white">
+    <div class="container py-4">
+        <div class="text-center">
+            <h1 class="mb-4">Add Car</h1>
+
+            <form 
+                th:object="${cars}" 
+                th:action="@{/save}" 
+                action="#" 
+                method="post" 
+                class="needs-validation" 
+                novalidate
+            >
+                <!-- Brand -->
+                <div class="mb-3">
+                    <label for="brand" class="form-label">Brand</label>
+                    <input 
+                        type="text" 
+                        id="brand" 
+                        th:field="*{brand}" 
+                        class="form-control w-50 mx-auto" 
+                        required
+                    />
+                </div>
+
+                <!-- Model -->
+                <div class="mb-3">
+                    <label for="model" class="form-label">Model</label>
+                    <input 
+                        type="text" 
+                        id="model" 
+                        th:field="*{model}" 
+                        class="form-control w-50 mx-auto" 
+                        required
+                    />
+                </div>
+
+                <!-- Year -->
+                <div class="mb-3">
+                    <label for="year" class="form-label">Year</label>
+                    <input 
+                        type="text" 
+                        id="year" 
+                        th:field="*{year}" 
+                        class="form-control w-50 mx-auto" 
+                        required
+                    />
+                </div>
+
+                <!-- Body -->
+                <div class="mb-3">
+                    <label for="body" class="form-label">Body</label>
+                    <input 
+                        type="text" 
+                        id="body" 
+                        th:field="*{body}" 
+                        class="form-control w-50 mx-auto" 
+                        required
+                    />
+                </div>
+
+                <!-- Engine -->
+                <div class="mb-3">
+                    <label for="engine" class="form-label">Engine</label>
+                    <input 
+                        type="text" 
+                        id="engine" 
+                        th:field="*{engine}" 
+                        class="form-control w-50 mx-auto" 
+                        required
+                    />
+                </div>
+
+                <!-- Power (HP) -->
+                <div class="mb-3">
+                    <label for="powerHp" class="form-label">Power (HP)</label>
+                    <input 
+                        type="text" 
+                        id="powerHp" 
+                        th:field="*{powerHp}" 
+                        class="form-control w-50 mx-auto" 
+                        required
+                    />
+                </div>
+
+                <!-- Price -->
+                <div class="mb-3">
+                    <label for="price" class="form-label">Price</label>
+                    <input 
+                        type="text" 
+                        id="price" 
+                        th:field="*{price}" 
+                        class="form-control w-50 mx-auto" 
+                        required
+                    />
+                </div>
+
+                <!-- Color -->
+                <div class="mb-3">
+                    <label for="colorlist" class="form-label">Color</label>
+                    <select 
+                        id="colorlist" 
+                        th:field="*{color}" 
+                        class="form-select w-50 mx-auto"
+                        required
+                    >
+                        <option th:each="color: ${colors}" th:value="${color.colorid}" th:text="${color.name}">
+                        </option>
+                    </select>
+                </div>
+
+                <!-- Actions -->
+                <div class="mt-4">
+                    <a th:href="@{/cars}" class="btn btn-danger me-2">Cancel</a>
+                    <button type="submit" class="btn btn-success">Save</button>
+                </div>
+            </form>
+
+            <div class="mt-4">
+                <a th:href="@{/cars}" class="btn btn-outline-primary">Back to Cars List</a>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

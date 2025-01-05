@@ -48,7 +48,6 @@ public class CarsController {
     }
 
     @RequestMapping(value = "/editcars/{id}")
-    @PreAuthorize("hasRole('ADMIN')")  // You can also apply @PreAuthorize here if only admins should edit
     public String showEditCars(@PathVariable("id") Long carsId, Model model) {
         var car = repository.findById(carsId);
         if (car.isPresent()) {
