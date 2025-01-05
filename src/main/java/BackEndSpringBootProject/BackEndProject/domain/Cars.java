@@ -24,6 +24,7 @@ public class Cars {
 	@JoinColumn(name = "colorid")
 	private Color color;
 
+	
 	public Cars() {}
 
 	public Cars(String brand, String model, int year, String body, String engine, int powerHp, int price, Color color) {

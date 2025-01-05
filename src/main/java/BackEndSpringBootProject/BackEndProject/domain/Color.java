@@ -34,7 +34,7 @@ public class Color {
         return colorid;
     }
 
-    public void setColorid(long colorid) {  // Corrected method name
+    public void setColorid(long colorid) {
         this.colorid = colorid;
     }
 
@@ -46,11 +46,11 @@ public class Color {
         this.name = name;
     }
 
-    public List<Cars> getCars() {  // Corrected method name
+    public List<Cars> getCars() {
         return cars;
     }
 
-    public void setCars(List<Cars> cars) {  // Corrected method name
+    public void setCars(List<Cars> cars) {
         this.cars = cars;
     }
 
