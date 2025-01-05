@@ -1,121 +1,94 @@
 # Cars List Project
 
-This project is a Cars List built with Java Spring Boot and an H2 in-memory database. It allows users to view, add, edit, and delete car entries with details like Brand, Model, Year, Engine, Horsepower (HP), Price, and Color.
+The **Cars List** project is built with **Java Spring Boot** and an H2 in-memory database. It allows users to **view**, **add**, **edit**, and **delete** car entries, including details such as **Brand**, **Model**, **Year**, **Engine**, **Horsepower (HP)**, **Price**, and **Color**. The project also includes **user authentication** with **Spring Security 6**, enabling users to log in, register, and access features based on their role.
 
-## Tech Stack
+## User Roles:
 
-- **Java Spring Boot**: The backend framework.
-- **Spring Web**: For handling web requests.
-- **Spring MVC**: For managing web pages.
-- **Thymeleaf**: For rendering the frontend.
-- **Spring Data JPA**: For database operations.
-- **H2 Database**: An in-memory database to store car data.
+- **Admin**: Can add, edit, and delete cars.
+- **Normal User**: Can add and edit cars but cannot delete cars.
 
-## Features
+## Tech Stack:
 
-- **View Cars**: The `/cars` page shows a list of cars with details and options to edit or delete them.
-- **Add Car**: The `/addcars` page lets users add a new car to the list.
-- **Edit Car**: The `/editcars` page allows users to edit an existing car’s details.
-- **Delete Car**: The `Delete` button removes a car from the list.
-- **Cancel Buttons**: On the `/addcars` and `/editcars` pages, clicking Cancel takes the user back to the cars list.
+- **Java Spring Boot**: Backend framework.
+- **Spring Web**: Handles web requests.
+- **Spring MVC**: Manages web pages.
+- **Thymeleaf**: For frontend rendering.
+- **Spring Data JPA**: For database interaction.
+- **H2 Database**: In-memory database.
+- **Spring Security 6**: Handles authentication and authorization.
+- **Spring Validation**: For input validation.
 
-## Database
+## Features:
 
-The project uses an H2 in-memory database, which is already set up and ready to use.
+- **View Cars**: Displays a list of cars with options to edit or delete (Admin only).
+- **Add Car**: A form to add a new car with validation.
+- **Edit Car**: A form to edit car details, available to both Admin and Normal Users.
+- **Delete Car**: Admin-only feature to delete cars.
+- **User Authentication**: Login with:
+  - **Admin**: `username: admin`, `password: admin` (Full access).
+  - **Normal User**: `username: user`, `password: user` (Limited access).
+- **Sign-Up**: New users can create an account via `/signup`.
+- **Input Validation**: Ensures valid data when adding/editing cars and registering.
 
-### Accessing the H2 Console
+## IDE Setup:
 
-1. Go to `http://localhost:8080/h2-console`.
-2. Use these settings:
-   - JDBC URL: `jdbc:h2:mem:testdb`
-   - Username: sa
-   - Password: Leave empty.
+### VSCode:
 
-This allows you to view and manage the database.
+1. Install the **Java Extension Pack** and **Spring Boot Dashboard** extensions.
+2. Open the project and run it using the installed Spring Boot Dashboard.
 
-## Endpoints
+### IntelliJ IDEA:
 
-### `/cars`
-Shows the list of cars with options to edit or delete each.
+1. Open the project and run it using the **Spring Boot** configuration.
 
-### `/addcars`
-Shows a form to add a new car.
+### Eclipse:
 
-### `/editcars`
-Shows a form to edit an existing car’s details.
+1. Import the project as a **Maven Project** and run it as a **Spring Boot App**.
 
-## Setup
+## Setup:
 
-1. **Clone the repository:**
+1. **Clone the repository**:
+
    ```bash
    git clone https://github.com/antonrezin/CarsListProject.git
    ```
 
-2. **Navigate to the project directory:**
+2. **Navigate to the project directory**:
+
    ```bash
    cd CarsListProject
    ```
 
-3. **Run the application:**
-   ```bash
-   ./mvnw spring-boot:run
-   ```
+3. **Run the application** in your chosen IDE, following the instructions for different IDEs listed above.
 
-4. Open your browser and go to `http://localhost:8080/cars` to view the application.
+4. Visit `http://localhost:8080` after successfully running the app to see it in action.
 
-## IDE Setup Instructions
+## Database Setup:
 
-### VSCode
+### H2 Console Access:
 
-1. **Install Java Extensions**:
-   - Open VSCode.
-   - Install the **Java Extension Pack**.
+1. Run the application following the instructions above.
+2. Go to `http://localhost:8080/h2-console`.
+3. Use the following credentials:
+   - **JDBC URL**: `jdbc:h2:mem:testdb`
+   - **Username**: `sa`
+   - **Password**: Leave empty.
 
-2. **Install Spring Boot Dashboard Extension**:
-   - Go to Extensions (`Ctrl+Shift+X`).
-   - Search for **Spring Boot Dashboard** and install it.
+## Endpoints:
 
-3. **Open the Project**:
-   - Select **File > Open Folder** and choose the project folder.
+- **`/login`**: Login page for user authentication.
+- **`/cars`**: Displays a list of all cars (Admin and Normal User).
+- **`/addcars`**: Form to add a new car (Login required).
+- **`/editcars`**: Form to edit car details (Admin and Normal Users).
+- **`/signup`**: Register new users.
 
-4. **Install Maven**:
-   - If you don't have Maven, install it by running `mvn -v` in the terminal.
+## How to Use:
 
-5. **Run the Application**:
-   - Open the Spring Boot Dashboard and click **Run**.
+1. **Login**:
+   - Use **Admin** or **Normal User** credentials. New users can sign up via `/signup`.
 
-6. **Open the App**:
-   - Go to `http://localhost:8080/cars` to view the app.
+2. **View, Add, and Edit Cars**:
+   - After logging in, you can view cars at `/cars`, add new cars via `/addcars`, and edit existing cars.
 
-### IntelliJ IDEA
-
-1. Open IntelliJ IDEA.
-2. Select **File > Open** and choose the project folder.
-3. IntelliJ will detect the Maven project and download the dependencies.
-4. Click **Run > Run 'CarsListProject'** to start the app.
-
-### Eclipse
-
-1. Open Eclipse.
-2. Select **File > Import**.
-3. Choose **Maven > Existing Maven Projects** and click **Next**.
-4. Select the project folder and click **Finish**.
-5. Right-click the project and select **Run As > Spring Boot App**.
-
-## How to Use
-
-1. **View Cars**:
-   Go to `/cars` to see the list of cars.
-
-2. **Add a Car**:
-   Click the "Add Car" button to go to the `/addcars` page and add a new car.
-
-3. **Edit a Car**:
-   Click "Edit" next to a car to change its details.
-
-4. **Delete a Car**:
-   Click "Delete" next to a car to remove it from the list.
-
-5. **Cancel Operations**:
-   If adding or editing a car, you can cancel and return to the list by clicking the "Cancel" button.
-   
+3. **Delete a Car**:
+   - Only Admins can delete cars.
