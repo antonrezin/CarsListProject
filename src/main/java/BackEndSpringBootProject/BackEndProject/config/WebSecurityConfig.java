@@ -27,7 +27,6 @@ public class WebSecurityConfig {
         http
             .authorizeHttpRequests(authorize -> authorize
                 .requestMatchers("/css/**", "/login", "/signup", "/saveuser").permitAll()
-                .requestMatchers("/delete/**").hasRole("ADMIN")
                 .anyRequest().authenticated())
             .csrf(csrf -> csrf.ignoringRequestMatchers("/h2-console/**"))
             .formLogin(formLogin -> formLogin
@@ -37,7 +36,7 @@ public class WebSecurityConfig {
             .headers(headers -> headers.frameOptions(frameOptions -> frameOptions.disable()))
             .logout(logout -> logout
                 .logoutUrl("/logout")
-                .logoutSuccessUrl("/login")
+                .logoutSuccessUrl("/login?logout")
                 .permitAll());
 
         return http.build();
