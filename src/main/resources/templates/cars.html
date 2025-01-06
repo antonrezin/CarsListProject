@@ -59,7 +59,7 @@
                 >Edit</a
               >
                 <a
-                  sec:authorize="hasRole('ROLE_ADMIN')"
+                  sec:authorize="hasRole('ADMIN')"
                   th:href="@{/delete/{id}(id=${cars.id})}"
                   class="btn btn-sm btn-danger me-1"
                   >Delete (Admin)</a
