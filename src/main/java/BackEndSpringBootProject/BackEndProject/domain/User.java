@@ -34,7 +34,6 @@ public class User {
         super();
         this.username = username;
         this.passwordHash = passwordHash;
-
         this.role = role;
     }
 
@@ -68,11 +67,6 @@ public class User {
 
     public void setRole(String role) {
         this.role = role;
-    }
-
-    public User get(int i) {
-
-        throw new UnsupportedOperationException("Unimplemented method 'get'");
     }
 
 }

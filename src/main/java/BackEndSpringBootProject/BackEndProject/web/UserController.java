@@ -22,7 +22,7 @@ public class UserController {
     private UserRepository repository;
 
     // login controller
-    @RequestMapping(value = "login", method = RequestMethod.GET)
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login(Model model) {
         return "login";
     }

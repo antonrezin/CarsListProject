@@ -19,13 +19,13 @@
 
       <div class="mb-3">
         <span sec:authorize="isAuthenticated()">
-          Welcome, <span sec:authentication="name"></span>
+            Welcome <span sec:authentication="name"></span>
         </span>
-      </div>
+    </div>
 
-      <form th:action="@{/logout}" method="post" class="d-inline-block mb-4">
-        <button type="submit" class="btn btn-sm btn-primary">Sign Out</button>
-      </form>
+    <form th:action="@{/logout}" method="post" class="d-inline-block mb-4" sec:authorize="isAuthenticated()">
+      <button type="submit" class="btn btn-sm btn-primary">Sign Out</button>
+    </form>
 
       <div class="table-responsive">
         <table class="table table-dark table-striped table-bordered">
@@ -54,15 +54,15 @@
               <td th:text="${cars.color.name}"></td>
               <td>
                 <a
+                th:href="@{/editcars/{id}(id=${cars.id})}"
+                class="btn btn-sm btn-primary"
+                >Edit</a
+              >
+                <a
                   sec:authorize="hasRole('ROLE_ADMIN')"
                   th:href="@{/delete/{id}(id=${cars.id})}"
                   class="btn btn-sm btn-danger me-1"
-                  >Delete</a
-                >
-                <a
-                  th:href="@{/editcars/{id}(id=${cars.id})}"
-                  class="btn btn-sm btn-primary"
-                  >Edit</a
+                  >Delete (Admin)</a
                 >
               </td>
             </tr>
